@@ -49,12 +49,4 @@ abstract class InvocationOrder implements SelfDescribing
     protected function invokedDo(BaseInvocation $invocation): void
     {
     }
-
-    public function getClassName(): string {
-
-        $classes = '';
-        foreach ($this->invocations as $invocation) {
-            return $invocation->className() . '::' . $invocation->methodName();
-        }
-    }
 }
