@@ -59,7 +59,8 @@ final class InvokedCount extends InvocationOrder
         if ($actualCount !== $this->expectedCount) {
             throw new ExpectationFailedException(
                 sprintf(
-                    'Method was expected to be called %d time%s, actually called %d time%s.',
+                    '%s -> Method was expected to be called %d time%s, actually called %d time%s.',
+                    $this->getClassName(),
                     $this->expectedCount,
                     $this->expectedCount !== 1 ? 's' : '',
                     $actualCount,
@@ -72,6 +73,7 @@ final class InvokedCount extends InvocationOrder
     /**
      * @throws ExpectationFailedException
      */
+    
     protected function invokedDo(BaseInvocation $invocation): void
     {
         $count = $this->numberOfInvocations();
